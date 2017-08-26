@@ -1,0 +1,4 @@
+Run these commands to compile the code 
+
+cmake -H. -Bbuild
+$ cmake --build build -- -j3
