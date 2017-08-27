@@ -1,35 +1,15 @@
+cmake_minimum_required(VERSION 2.8.9)
+project (TestLibrary)
 
-##############################################
-#VARIABLES 
-#${CMAKE_SOURCE_DIR}  : path of CMakeLists.txt
-##############################################
+#For the shared library:
+#set ( PROJECT_LINK_LIBS libtestStudent.so )
+#link_directories( ~/exploringBB/extras/cmake/studentlib_shared/build )
 
+#For the static library:
+set ( PROJECT_LINK_LIBS libtestStudent.a )
+link_directories(build )
 
-
-# Specify the minimum version for CMake
-cmake_minimum_required (VERSION 2.6)
-
-
-
-# Project's name
-project (Tutorial)
-
-
-#build in only release mode
-set(CMAKE_BUILD_TYPE Release)
-
-#include directories
 include_directories(include)
 
-
-#Can manually add the sources using the set command as follows:
-set(SOURCES src/Student.cpp)
- 
-
-#name of the executable and souce code to compile
-add_library(testStudent STATIC ${SOURCES})
-
-
-#Set the location for library installation -- i.e., /usr/lib in this case
-# not really necessary in this example. Use "sudo make install" to apply
-install(TARGETS testStudent DESTINATION /usr/lib)
+add_executable(libtest tutorial.cpp)
+target_link_libraries(libtest ${PROJECT_LINK_LIBS} )
