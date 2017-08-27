@@ -27,7 +27,7 @@ set(SOURCES src/Student.cpp)
  
 
 #name of the executable and souce code to compile
-add_library(testStudent SHARED ${SOURCES})
+add_library(testStudent STATIC ${SOURCES})
 
 
 #Set the location for library installation -- i.e., /usr/lib in this case
