@@ -11,5 +11,7 @@ link_directories(build )
 
 include_directories(include)
 
-add_executable(libtest tutorial.cpp)
+set(SOURCES src/tutorial.cpp)
+
+add_executable(libtest ${SOURCES})
 target_link_libraries(libtest ${PROJECT_LINK_LIBS} )
